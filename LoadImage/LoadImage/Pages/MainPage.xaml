@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="LoadImage.MainPage" BackgroundColor="White" Visual="Material">
+    <StackLayout>
+        <Entry x:Name="nameentry" Placeholder="Введите название" BackgroundColor="lightGray" PlaceholderColor="Gray" Margin="40, 40, 40, 0" FontSize="15"/>
+        <StackLayout Orientation="Horizontal" Margin="40,10">
+            <Button x:Name="galerbtn" BackgroundColor="Blue" Text="Галерея" HorizontalOptions="Start" CornerRadius="20" Clicked="GetPhotoAsync" Padding="10,5"/>
+            <Button x:Name="camerbtn" BackgroundColor="blue" Text="Камера" HorizontalOptions="EndAndExpand" CornerRadius="20" Clicked="TakePhotoAsync" Padding="10,5"/>
+        </StackLayout>
+        <Button x:Name="addbtn" BackgroundColor="Blue" Text="Добавить" CornerRadius="20" Margin="40, 10, 40, 0" Clicked="addbtn_Clicked" Padding="10,5"/>
+        <StackLayout Margin="15, 20">
+            <ScrollView>
+                <ListView x:Name="imageList" ItemTapped="imageList_ItemTapped">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Label Text="{Binding Name}" TextColor="Black" FontSize="20"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
